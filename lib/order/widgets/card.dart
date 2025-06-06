@@ -22,36 +22,50 @@ class SelectableCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: screenWidth * 0.27,
+        width: screenWidth * 0.29,
+        height: 150,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(40),
+          borderRadius: BorderRadius.circular(10),
           border: Border.all(
             color: onSelected ? Colors.red : Colors.transparent,
             width: 4,
           ),
         ),
-        child: Column(
-          
-          children: [
-            Text(title),
-            Expanded(
-              child: AspectRatio(
-                aspectRatio: 6 / 3,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(40),
-                  child: Column(
-                    children: [
-                      Image.asset(
-                        path,
-                        fit: BoxFit.cover,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(10),
+          child: Stack(
+            fit: StackFit.expand,
+            children: [
+              Container(
+                color: Colors.white,
+              ),
+              Image.asset(
+                path,
+                fit: BoxFit.cover, // prend tout l’espace du container
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: const TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
                       ),
-                    ],
-                  ),
+                    ),
+                    Text(
+                      type.name,
+                      style: const TextStyle(
+                          color: Colors.black, fontWeight: FontWeight.bold),
+                    ),
+                  ],
                 ),
               ),
-            ),
-            Text(type.name)
-          ],
+            ],
+          ),
         ),
       ),
     );

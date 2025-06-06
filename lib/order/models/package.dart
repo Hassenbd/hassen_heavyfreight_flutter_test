@@ -5,5 +5,10 @@ class Package {
   String title;
   TypePackage type;
   String image;
-  Package({required this.id, required this.title, required this.type, required this.image});
+  bool selected=false;
+  Package(
+      {required this.id,
+      required this.title,
+      required this.type,
+      required this.image});
 }

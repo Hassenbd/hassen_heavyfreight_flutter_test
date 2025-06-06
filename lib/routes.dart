@@ -4,17 +4,16 @@ import 'package:hassen_heavyfreight_flutter_test/order/screens/form.dart';
 
 GoRouter router() {
   return GoRouter(
-    initialLocation: Login.route,
-        routes: <RouteBase>[
-          GoRoute(
-            path: FormPackage.route,
-            builder: (context, state) => const FormPackage(),
-          ),
-          GoRoute(
-            path: Login.route,
-            builder: (context, state) => Login(),
-          )
-        ],
-      
+    initialLocation: FormPackage.route,
+    routes: <RouteBase>[
+      GoRoute(
+        path: FormPackage.route,
+        builder: (context, state) => const FormPackage(),
+      ),
+      GoRoute(
+        path: Login.route,
+        builder: (context, state) => Login(),
+      )
+    ],
   );
 }

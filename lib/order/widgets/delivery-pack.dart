@@ -8,9 +8,9 @@ class DeliveryPack extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 70,
+      height: 50,
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: EdgeInsets.all(0),
         child: ElevatedButton(
             onPressed: () {},
             child: Row(
@@ -19,13 +19,19 @@ class DeliveryPack extends StatelessWidget {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Text(pack.type.name),
+                    Text(
+                      pack.type.name,
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black),
+                    ),
                     Text(" ${pack.duration} Days shipping"),
                   ],
                 ),
                 Text(
-                  "${pack.amount} DT",
-                  style: TextStyle(color: Colors.red),
+                  "${pack.amount.toInt()} DT",
+                  style: TextStyle(color: Colors.red, fontSize: 17),
                 )
               ],
             )),
