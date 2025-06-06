@@ -36,15 +36,14 @@ class OtpSnackBar {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: IconButton(
+                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                    IconButton(
                       icon: const Icon(Icons.arrow_downward, color: Colors.red),
                       onPressed: () {
                         ScaffoldMessenger.of(context).hideCurrentSnackBar();
                       },
                     ),
-                  ),
+                  ]),
                   const Text(
                     "OTP Verification",
                     style: TextStyle(

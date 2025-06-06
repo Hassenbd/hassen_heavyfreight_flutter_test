@@ -22,52 +22,36 @@ class SelectableCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: screenWidth * 0.29,
-        height: 150,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          border: Border.all(
-            color: onSelected ? Colors.red : Colors.transparent,
-            width: 4,
+          width: screenWidth * 0.29,
+          height: 150,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(path),
+              fit: BoxFit.cover,
+            ),
+            borderRadius: BorderRadius.circular(15),
+            border: Border.all(
+              color: onSelected ? Colors.red : Colors.transparent,
+              width: 4,
+            ),
           ),
-        ),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(10),
-          child: Stack(
-            fit: StackFit.expand,
+          child: Column(
             children: [
-              Container(
-                color: Colors.white,
-              ),
-              Image.asset(
-                path,
-                fit: BoxFit.cover, // prend tout l’espace du container
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      title,
-                      style: const TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Text(
-                      type.name,
-                      style: const TextStyle(
-                          color: Colors.black, fontWeight: FontWeight.bold),
-                    ),
-                  ],
+              Text(
+                title,
+                style: const TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
+              const Spacer(),
+              Text(
+                type.name,
+                style: const TextStyle(
+                    color: Colors.black, fontWeight: FontWeight.bold),
+              ),
             ],
-          ),
-        ),
-      ),
+          )),
     );
   }
 }

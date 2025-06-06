@@ -1,10 +1,12 @@
+import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hassen_heavyfreight_flutter_test/authentification/screen/login.dart';
+import 'package:hassen_heavyfreight_flutter_test/order/screens/delivery-info.dart';
 import 'package:hassen_heavyfreight_flutter_test/order/screens/form.dart';
 
 GoRouter router() {
   return GoRouter(
-    initialLocation: FormPackage.route,
+    initialLocation: Login.route,
     routes: <RouteBase>[
       GoRoute(
         path: FormPackage.route,
@@ -13,7 +15,10 @@ GoRouter router() {
       GoRoute(
         path: Login.route,
         builder: (context, state) => Login(),
-      )
+      ),
+      GoRoute(
+          path: DeliveryInfo.route,
+          builder: (context, state) => const DeliveryInfo())
     ],
   );
 }

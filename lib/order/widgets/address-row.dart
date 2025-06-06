@@ -16,7 +16,7 @@ class AddressRow extends StatelessWidget {
     return Row(
       children: [
         Icon(Icons.circle, color: dotColor, size: 12),
-        const SizedBox(width: 10),
+        const SizedBox(width: 12),
         Expanded(
             child:
                 Text("$label\n$address", style: const TextStyle(fontSize: 14))),
